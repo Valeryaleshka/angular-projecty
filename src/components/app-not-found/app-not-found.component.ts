@@ -7,6 +7,4 @@ import { RouterLink } from '@angular/router';
   templateUrl: './app-not-found.component.html',
   styleUrl: './app-not-found.component.less',
 })
-export class AppNotFoundComponent {
-  as = 'sdsd';
-}
+export class AppNotFoundComponent {}
