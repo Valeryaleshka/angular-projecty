@@ -1,0 +1,13 @@
+<div class="header-container d-flx flx-column gap-l">
+  <header class="header t-s-r">
+    <ng-content select="[page-title]"></ng-content>
+  </header>
+
+  @if(menu.length) {
+  <div class="d-flx gap-l">
+    @for (item of menu; track item) {
+      <a [class.active]="isActive(item.url)" [routerLink]="item.url">{{ item.title }}</a>
+    }
+  </div>
+}
+</div>
