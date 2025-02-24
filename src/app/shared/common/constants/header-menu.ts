@@ -12,4 +12,8 @@ export const HeaderMenu: HeaderMenuType[] = [
     title: 'About',
     url: '/about',
   },
+  {
+    title: 'Vide Service',
+    url: '/video',
+  },
 ];

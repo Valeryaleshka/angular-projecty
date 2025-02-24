@@ -1,11 +1,28 @@
 @import 'variables';
 
+.header-color {
+  color: var(--header-color);
+}
+
+.clickable {
+  cursor: pointer;
+}
 .d-flx {
   display: flex;
 }
 
 .flx-column {
   flex-direction: column;
+}
+
+.flx-center {
+  justify-content: center;
+  align-items: center;
+}
+
+
+.flx-1 {
+ flex-grow: 1;
 }
 
 .flx-row {
@@ -18,6 +35,10 @@
 
 .gap-l {
   gap: @spacing-l;
+}
+
+.m-b-s  {
+  margin-bottom: @spacing-s;
 }
 
 .m-b-l {
