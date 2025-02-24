@@ -19,6 +19,7 @@ export class HeaderComponent {
   private router = inject(Router);
 
   @Input() menu = HeaderMenu;
+
   lightTheme$ = this.globalState.lightTheme;
 
   isActive(url: string): boolean {
@@ -26,6 +27,6 @@ export class HeaderComponent {
   }
 
   changeTheme() {
-    this.globalState.changeTheme();
+    this.globalState.switchTheme();
   }
 }

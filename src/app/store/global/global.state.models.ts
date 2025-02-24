@@ -1,5 +1,5 @@
-export type themeType = 'dark' | 'light';
+export type GlobalThemeType = 'dark' | 'light';
 
 export interface GlobalStateModel {
-  theme: themeType;
+  theme: GlobalThemeType;
 }

@@ -1,11 +1,18 @@
 import { ActivatedRouteSnapshot } from '@angular/router';
 
-export function getTitleFromRoute(
-  route: ActivatedRouteSnapshot,
+export function getLastDataFromChildRoute(
+  route: ActivatedRouteSnapshot | null,
   name: string
 ): string {
-  while (route.firstChild) {
+  let lastValue = '';
+
+  while (route) {
+    if (route.data && route.data[name]) {
+      lastValue = route.data[name];
+    }
+
     route = route.firstChild;
   }
-  return route.data[name] ?? '';
+
+  return lastValue;
 }

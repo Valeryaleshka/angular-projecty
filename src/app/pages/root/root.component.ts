@@ -10,7 +10,7 @@ import { filter, NEVER, Observable, startWith } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { AsyncPipe } from '@angular/common';
-import { getTitleFromRoute } from '../../shared/common/helper/route-data.helper';
+import { getLastDataFromChildRoute } from '../../shared/common/helper/route-data.helper';
 
 @Component({
   selector: 'app-root',
@@ -28,8 +28,8 @@ export class RootComponent implements OnInit {
   ngOnInit() {
     this.title$ = this.router.events.pipe(
       filter(event => event instanceof NavigationEnd),
-      map(() => getTitleFromRoute(this.route.snapshot, 'title')),
-      startWith(getTitleFromRoute(this.route.snapshot, 'title')),
+      map(() => getLastDataFromChildRoute(this.route.snapshot, 'title')),
+      startWith(getLastDataFromChildRoute(this.route.snapshot, 'title')),
       takeUntilDestroyed(this.destroyRef)
     );
   }
