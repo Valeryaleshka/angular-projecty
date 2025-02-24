@@ -1,14 +1,29 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { AboutComponent } from './pages/about/about.component';
+import { VideoChartComponent } from './pages/video-chart/video-chart.component';
+import { RootComponent } from './pages/root/root.component';
 
 export const routes: Routes = [
-  { path: 'home', component: HomeComponent, data: { title: 'Home' } },
   {
-    path: 'about',
-    component: AboutComponent,
-    data: { title: 'About' },
+    path: '',
+    component: RootComponent,
+    children: [
+      { path: '', pathMatch: 'full', redirectTo: '/home' },
+      { path: 'home', component: HomeComponent, data: { title: 'Home' } },
+      {
+        path: 'about',
+        component: AboutComponent,
+        data: { title: 'About' },
+      },
+      {
+        path: 'video',
+        component: VideoChartComponent,
+        data: { title: 'Video Chart' },
+      },
+    ],
   },
+
   // {
   //   path: 'not-home',
   //   providers: [NzModalService],
@@ -26,7 +41,6 @@ export const routes: Routes = [
   //     ),
   //   outlet: 'sidebar',
   // },
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
   {
     path: '404',
     loadComponent: () =>

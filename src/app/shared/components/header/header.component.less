@@ -1,14 +1,31 @@
-@import 'variables';
-
 :host {
   display: block;
   width: 100%;
-  background-color: @blue-100;
+  background-color: var(--main-color);
   min-height: 100px;
-  padding: @spacing-l;
+  padding: 20px;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  transition: background-color 0.5s;
 }
 
 .active {
-  color: @white;
+  border-bottom: 1px solid white;
 }
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+
+  .title {
+    color: var(--header-color);
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
 

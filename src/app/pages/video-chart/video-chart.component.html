@@ -1,0 +1,61 @@
+<app-content-container>
+  <div class="search-field d-flx gap-s m-b-l">
+    <input
+      (keydown.enter)="getList()"
+      nz-input
+      placeholder="Search"
+      [ngModel]="searchValue()"
+      (ngModelChange)="searchValue.set($event)" />
+    <button
+      nz-button
+      (click)="getList()"
+      nzType="primary"
+      [nzLoading]="loadingListStatus">
+      Search
+    </button>
+  </div>
+  <div class="content-wrapper">
+    <div class="video-wrapper">
+      <div class="t-s-r m-b-s">{{ selectedItem?.title }}</div>
+      <div class="t-s-s m-b-s">{{ selectedItem?.description }}</div>
+      <iframe
+        #youtubeiframe
+        [src]="'https://www.youtube.com/embed/' + selectedItem?.id | safeXxs"
+        title="YouTube video player"
+        height="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen>
+      </iframe>
+    </div>
+
+    <div class="table-wrapper">
+      <nz-table
+        #videoTable
+        [nzData]="videoList"
+        [nzLoading]="loadingListStatus"
+        [nzFrontPagination]="false">
+        <thead>
+          <tr>
+            <th>Preview</th>
+            <th>Title</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (data of videoTable.data; track data) {
+            <tr (click)="clickRow(data)" class="clickable">
+              <td>
+                <img
+                  src="{{ data.icon.url }}"
+                  alt=""
+                  width="100px"
+                  height="56px" />
+              </td>
+              <td>{{ data.title }}</td>
+            </tr>
+          }
+        </tbody>
+      </nz-table>
+    </div>
+  </div>
+</app-content-container>

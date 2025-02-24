@@ -432,6 +432,13 @@
   dependencies:
     tslib "^2.3.0"
 
+"@angular/material@^19.1.5":
+  version "19.1.5"
+  resolved "https://registry.yarnpkg.com/@angular/material/-/material-19.1.5.tgz#976d29cb3802def5eee49718a3215b6d8c356cbf"
+  integrity sha512-Fi04Toe+z0qorfpZkQ5rIRE9cVgBOHdgCig5oFrHpycSDW2LMTrvZtSV/qMwrIe5GPn49EXE2jCGcSpgumW4KA==
+  dependencies:
+    tslib "^2.3.0"
+
 "@angular/platform-browser-dynamic@^19.1.0":
   version "19.1.6"
   resolved "https://registry.yarnpkg.com/@angular/platform-browser-dynamic/-/platform-browser-dynamic-19.1.6.tgz#e8cebcb1c2a1c46288b9eedc82a7932b7048d292"
@@ -2020,6 +2027,27 @@
   resolved "https://registry.yarnpkg.com/@ngtools/webpack/-/webpack-19.1.8.tgz#db328d0d43c89d1660c436f8c0b1384dfc23f5eb"
   integrity sha512-uaEQMX0qElCO27R55efEQ/5UjID5KPLtgjwF9VXJ9Eoqsnr7gvKbTBQLtI8uui9aDJRxyvs58SC46E4x2EaAhQ==
 
+"@ngxs/devtools-plugin@^19.0.0":
+  version "19.0.0"
+  resolved "https://registry.yarnpkg.com/@ngxs/devtools-plugin/-/devtools-plugin-19.0.0.tgz#351c46527a1f88fe65e43d15a7bd2b7622287568"
+  integrity sha512-z3O/G0fGeSc/mQRMBWwQ98W+kB0QpIMPZg2FLIubyZwWydouVatjhYck4IDLR/h5i6lq4McKioMK2tn/mXZqnQ==
+  dependencies:
+    tslib "^2.3.0"
+
+"@ngxs/router-plugin@^19.0.0":
+  version "19.0.0"
+  resolved "https://registry.yarnpkg.com/@ngxs/router-plugin/-/router-plugin-19.0.0.tgz#a4102f28cf7ed6d8b9d9cec64d0466a3cc0e1f64"
+  integrity sha512-0gjphW0Rfq19EUOvfsZqOLnbnuAu5yMYCDavoFJd/M8y+yJJ1UohcvzAdCBvubj2wtIAb5+9L3lMlctJ6Wwdcg==
+  dependencies:
+    tslib "^2.3.0"
+
+"@ngxs/store@^19.0.0":
+  version "19.0.0"
+  resolved "https://registry.yarnpkg.com/@ngxs/store/-/store-19.0.0.tgz#703c9c31a8a2550975c813ccd3c623fae2dad722"
+  integrity sha512-h8xMl3OisrYabdfbUQjy98X/BSaId8t0iX3VlQgOmG0sYuC5OuZvggZywn0urLkA3H97LEI7ihvuS8spEBo6YA==
+  dependencies:
+    tslib "^2.3.0"
+
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"
   resolved "https://registry.yarnpkg.com/@nodelib/fs.scandir/-/fs.scandir-2.1.5.tgz#7619c2eb21b25483f6d167548b4cfd5a7488c3d5"
@@ -3015,6 +3043,11 @@ acorn@^8.0.4, acorn@^8.11.0, acorn@^8.14.0, acorn@^8.4.1, acorn@^8.8.2, acorn@^8
   version "8.14.0"
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-8.14.0.tgz#063e2c70cac5fb4f6467f0b11152e04c682795b0"
   integrity sha512-cl669nCJTZBsL97OF4kUQm5g5hC2uihk0NxY3WENAC0TYdILVkAyHymAntgxGkl7K+t0cXIrH5siy5S4XkFycA==
+
+add@^2.0.6:
+  version "2.0.6"
+  resolved "https://registry.yarnpkg.com/add/-/add-2.0.6.tgz#248f0a9f6e5a528ef2295dbeec30532130ae2235"
+  integrity sha512-j5QzrmsokwWWp6kUcJQySpbG+xfOBqqKnup3OIk1pz+kB/80SLorZ9V8zHFLO92Lcd+hbvq8bT+zOGoPkmBV0Q==
 
 adjust-sourcemap-loader@^4.0.0:
   version "4.0.0"

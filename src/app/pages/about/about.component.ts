@@ -1,15 +1,9 @@
-import { Component, inject } from '@angular/core';
-import { HeaderComponent } from '../../shared/components/header/header.component';
-import { ActivatedRoute } from '@angular/router';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-about',
-  imports: [HeaderComponent],
+  imports: [],
   templateUrl: './about.component.html',
   styleUrl: './about.component.less',
 })
-export class AboutComponent {
-  route = inject(ActivatedRoute);
-
-  title = this.route.snapshot.data['title'];
-}
+export class AboutComponent {}

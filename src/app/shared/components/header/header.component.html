@@ -1,13 +1,25 @@
-<div class="header-container d-flx flx-column gap-l">
+<div class="header-container d-flx flx-column flx-center gap-l">
   <header class="header t-s-r">
-    <ng-content select="[page-title]"></ng-content>
+    <div class="title">
+      <ng-content select="[page-title]"></ng-content>
+    </div>
+    <div class="settings">
+      <nz-switch
+        [ngModel]="lightTheme$ | async"
+        (ngModelChange)="changeTheme()" />
+    </div>
   </header>
 
-  @if(menu.length) {
-  <div class="d-flx gap-l">
-    @for (item of menu; track item) {
-      <a [class.active]="isActive(item.url)" [routerLink]="item.url">{{ item.title }}</a>
-    }
-  </div>
-}
+  @if (menu.length) {
+    <div class="d-flx gap-l">
+      @for (item of menu; track item) {
+        <a
+          [class.active]="isActive(item.url)"
+          [routerLink]="item.url"
+          class="header-color"
+          >{{ item.title }}</a
+        >
+      }
+    </div>
+  }
 </div>
