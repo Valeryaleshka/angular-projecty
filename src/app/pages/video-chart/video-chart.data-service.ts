@@ -8,7 +8,7 @@ import { Item, VideoItem, YoutubeResponse } from './vide-chart.types';
   providedIn: 'root',
 })
 export class VideoChartDataService {
-  private apiKey = 'AIzaSyAAnjwUEtVH4kZGxUkrxemRERKRcfAq7fk';
+  private apiKey = 'someApiKey';
   private http = inject(AppHttpService);
 
   getVideosForChanel(name?: string): Observable<VideoItem[]> {
