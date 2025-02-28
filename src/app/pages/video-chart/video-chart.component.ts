@@ -7,6 +7,7 @@ import {
   ViewChild,
   OnDestroy,
   signal,
+  AfterViewInit,
 } from '@angular/core';
 import { VideoChartDataService } from './video-chart.data-service';
 import { ContentContainerComponent } from '../../shared/components/content-container/content-container.component';
@@ -34,10 +35,10 @@ import { loadingStatus } from '../../shared/common/pipes/loading-status.pipe';
   templateUrl: './video-chart.component.html',
   styleUrl: './video-chart.component.less',
 })
-export class VideoChartComponent implements OnInit, OnDestroy {
+export class VideoChartComponent implements OnInit, OnDestroy, AfterViewInit {
   @ViewChild('youtubeiframe') iframe!: ElementRef<HTMLIFrameElement>;
 
-  private resizeObserver: ResizeObserver | undefined;
+  private resizeObserver: ResizeObserver | undefined = undefined;
   private dataService = inject(VideoChartDataService);
   private destroyRef = inject(DestroyRef);
 
@@ -49,6 +50,11 @@ export class VideoChartComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.getList();
+  }
+
+  ngAfterViewInit() {
+    this.setIframeHeight();
+    this.subscribeToIframeResize();
   }
 
   ngOnDestroy() {
@@ -70,15 +76,12 @@ export class VideoChartComponent implements OnInit, OnDestroy {
             ? (this.selectedItem = data[0])
             : null;
         }
-
-        if (!this.resizeObserver) {
-          this.setIframeHeight();
-          this.subscribeToIframeResize();
-        }
       });
   }
 
   private setIframeHeight() {
+    console.log(this.iframe.nativeElement);
+    console.log('hello');
     const iframe = this.iframe.nativeElement;
     const iframeWidth = iframe.offsetWidth;
     const iframeHeight = (iframeWidth * 9) / 16;

@@ -11,10 +11,11 @@ import { map } from 'rxjs/operators';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { AsyncPipe } from '@angular/common';
 import { getLastDataFromChildRoute } from '../../shared/common/helper/route-data.helper';
+import { FooterComponent } from '../../shared/components/footer/footer.component';
 
 @Component({
   selector: 'app-root',
-  imports: [HeaderComponent, RouterOutlet, AsyncPipe],
+  imports: [HeaderComponent, RouterOutlet, AsyncPipe, FooterComponent],
   templateUrl: './root.component.html',
   styleUrl: './root.component.less',
 })
