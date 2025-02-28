@@ -14,9 +14,9 @@
     <div class="d-flx gap-l">
       @for (item of menu; track item) {
         <a
+          class="menu-item"
           [class.active]="isActive(item.url)"
           [routerLink]="item.url"
-          class="header-color"
           >{{ item.title }}</a
         >
       }

@@ -13,7 +13,6 @@
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
-      "prefix": "app",
       "architect": {
         "lint": {
           "builder": "@angular-eslint/builder:lint",

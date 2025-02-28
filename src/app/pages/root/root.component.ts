@@ -10,11 +10,12 @@ import { filter, NEVER, Observable, startWith } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { AsyncPipe } from '@angular/common';
-import { getTitleFromRoute } from '../../shared/common/helper/route-data.helper';
+import { getLastDataFromChildRoute } from '../../shared/common/helper/route-data.helper';
+import { FooterComponent } from '../../shared/components/footer/footer.component';
 
 @Component({
   selector: 'app-root',
-  imports: [HeaderComponent, RouterOutlet, AsyncPipe],
+  imports: [HeaderComponent, RouterOutlet, AsyncPipe, FooterComponent],
   templateUrl: './root.component.html',
   styleUrl: './root.component.less',
 })
@@ -28,8 +29,8 @@ export class RootComponent implements OnInit {
   ngOnInit() {
     this.title$ = this.router.events.pipe(
       filter(event => event instanceof NavigationEnd),
-      map(() => getTitleFromRoute(this.route.snapshot, 'title')),
-      startWith(getTitleFromRoute(this.route.snapshot, 'title')),
+      map(() => getLastDataFromChildRoute(this.route.snapshot, 'title')),
+      startWith(getLastDataFromChildRoute(this.route.snapshot, 'title')),
       takeUntilDestroyed(this.destroyRef)
     );
   }

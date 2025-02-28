@@ -1,8 +1,10 @@
 import { inject, Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { Observable, of } from 'rxjs';
 import { AppHttpService } from '../../shared/common/services/app-http.service';
 import { Item, VideoItem, YoutubeResponse } from './vide-chart.types';
+import { videoResponse } from './video-chart.mock';
+import { map } from 'rxjs/operators';
+import { shuffle } from './video-chart.helper';
 
 @Injectable({
   providedIn: 'root',
@@ -12,25 +14,21 @@ export class VideoChartDataService {
   private http = inject(AppHttpService);
 
   getVideosForChanel(name?: string): Observable<VideoItem[]> {
-    const params = {
-      part: 'snippet',
-      key: this.apiKey,
-      maxResults: 20,
-      order: 'viewCount',
-      type: 'video',
-      q: name ?? '',
-      videoCategoryId: 10,
-    };
+    // const params = {
+    //   part: 'snippet',
+    //   key: this.apiKey,
+    //   maxResults: 20,
+    //   order: 'viewCount',
+    //   type: 'video',
+    //   q: name ?? '',
+    //   videoCategoryId: 10,
+    // };
 
-    return this.http
-      .get<YoutubeResponse>(
-        'https://www.googleapis.com/youtube/v3/search',
-        params
-      )
-      .pipe(
-        map((response: YoutubeResponse) => {
-          console.log(response);
-          return response.items.map((item: Item) => ({
+    return of(videoResponse as never as YoutubeResponse).pipe(
+      map((response: YoutubeResponse) => {
+        console.log(response);
+        return shuffle(
+          response.items.map((item: Item) => ({
             id: item.id.videoId,
             title: item.snippet.title,
             channelTitle: item.snippet.channelTitle,
@@ -40,8 +38,9 @@ export class VideoChartDataService {
               height: item.snippet.thumbnails.medium.height,
               width: item.snippet.thumbnails.medium.width,
             },
-          }));
-        })
-      );
+          }))
+        );
+      })
+    );
   }
 }

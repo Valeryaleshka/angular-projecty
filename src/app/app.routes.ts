@@ -1,7 +1,4 @@
 import { Routes } from '@angular/router';
-import { HomeComponent } from './pages/home/home.component';
-import { AboutComponent } from './pages/about/about.component';
-import { VideoChartComponent } from './pages/video-chart/video-chart.component';
 import { RootComponent } from './pages/root/root.component';
 
 export const routes: Routes = [
@@ -10,15 +7,24 @@ export const routes: Routes = [
     component: RootComponent,
     children: [
       { path: '', pathMatch: 'full', redirectTo: '/home' },
-      { path: 'home', component: HomeComponent, data: { title: 'Home' } },
+      {
+        path: 'home',
+        loadComponent: () =>
+          import('./pages/home/home.component').then(x => x.HomeComponent),
+        data: { title: 'Home' },
+      },
       {
         path: 'about',
-        component: AboutComponent,
+        loadComponent: () =>
+          import('./pages/about/about.component').then(x => x.AboutComponent),
         data: { title: 'About' },
       },
       {
         path: 'video',
-        component: VideoChartComponent,
+        loadComponent: () =>
+          import('./pages/video-chart/video-chart.component').then(
+            x => x.VideoChartComponent
+          ),
         data: { title: 'Video Chart' },
       },
     ],

@@ -18,15 +18,15 @@
     <div class="video-wrapper">
       <div class="t-s-r m-b-s">{{ selectedItem?.title }}</div>
       <div class="t-s-s m-b-s">{{ selectedItem?.description }}</div>
-      <iframe
-        #youtubeiframe
-        [src]="'https://www.youtube.com/embed/' + selectedItem?.id | safeXxs"
-        title="YouTube video player"
-        height="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        referrerpolicy="strict-origin-when-cross-origin"
-        allowfullscreen>
-      </iframe>
+      <div #youtubeiframe class="iframe-wrapper">
+        <iframe
+          [src]="'https://www.youtube.com/embed/' + selectedItem?.id | safeXxs"
+          title="YouTube video player"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen>
+        </iframe>
+      </div>
     </div>
 
     <div class="table-wrapper">
