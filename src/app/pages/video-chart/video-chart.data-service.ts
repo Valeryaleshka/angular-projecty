@@ -14,6 +14,7 @@ export class VideoChartDataService {
   private http = inject(AppHttpService);
 
   getVideosForChanel(name?: string): Observable<VideoItem[]> {
+    console.log(name);
     // const params = {
     //   part: 'snippet',
     //   key: this.apiKey,

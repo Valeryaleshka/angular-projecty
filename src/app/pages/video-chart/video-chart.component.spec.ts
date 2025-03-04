@@ -8,9 +8,8 @@ describe('VideoChartComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [VideoChartComponent]
-    })
-    .compileComponents();
+      imports: [VideoChartComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(VideoChartComponent);
     component = fixture.componentInstance;
