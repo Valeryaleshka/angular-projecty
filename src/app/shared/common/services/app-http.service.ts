@@ -22,7 +22,6 @@ export class AppHttpService {
       }
     }
 
-    // Make the GET request with parameters
     return this.http.get<T>(url, { params: httpParams });
   }
 }
