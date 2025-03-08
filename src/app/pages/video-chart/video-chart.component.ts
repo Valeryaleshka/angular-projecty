@@ -19,16 +19,17 @@ import { NzInputDirective } from 'ng-zorro-antd/input';
 import { FormsModule } from '@angular/forms';
 import { NzButtonComponent } from 'ng-zorro-antd/button';
 import { loadingStatus } from '../../shared/common/pipes/loading-status.pipe';
+import { NzAlertModule } from 'ng-zorro-antd/alert';
 
 @Component({
   selector: 'app-video-chart',
   imports: [
     ContentContainerComponent,
     SafeXxsPipe,
-
     NzTableModule,
     NzInputDirective,
     FormsModule,
+    NzAlertModule,
     NzButtonComponent,
   ],
   providers: [VideoChartDataService],

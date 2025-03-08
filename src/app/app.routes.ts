@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { RootComponent } from './pages/root/root.component';
+import { HeaderTitles } from './shared/common/constants/header-menu';
 
 export const routes: Routes = [
   {
@@ -11,13 +12,13 @@ export const routes: Routes = [
         path: 'home',
         loadComponent: () =>
           import('./pages/home/home.component').then(x => x.HomeComponent),
-        data: { title: 'Home' },
+        data: { title: HeaderTitles.home },
       },
       {
         path: 'about',
         loadComponent: () =>
           import('./pages/about/about.component').then(x => x.AboutComponent),
-        data: { title: 'About' },
+        data: { title: HeaderTitles.about },
       },
       {
         path: 'video',
@@ -25,7 +26,7 @@ export const routes: Routes = [
           import('./pages/video-chart/video-chart.component').then(
             x => x.VideoChartComponent
           ),
-        data: { title: 'Video Chart' },
+        data: { title: HeaderTitles.video },
       },
     ],
   },

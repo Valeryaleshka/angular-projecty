@@ -1,4 +1,8 @@
 <app-content-container>
+  <nz-alert
+    class="m-b-l m-t-l"
+    nzType="warning"
+    nzMessage="Video data response is temporary mocked" />
   <div class="search-field d-flx gap-s m-b-l">
     <input
       (keydown.enter)="getList()"
@@ -16,7 +20,7 @@
   </div>
   <div class="content-wrapper">
     <div class="video-wrapper">
-      <div class="t-s-r m-b-s">{{ selectedItem?.title }}</div>
+      <div class="t-l-r m-b-s">{{ selectedItem?.title }}</div>
       <div class="t-s-s m-b-s">{{ selectedItem?.description }}</div>
       <div #youtubeiframe class="iframe-wrapper">
         <iframe
