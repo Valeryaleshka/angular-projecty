@@ -17,7 +17,7 @@
         "deploy": {
           "builder": "angular-cli-ghpages:deploy",
           "options": {
-            "buildTarget": "test:build:production"
+            "buildTarget": "angular-projecty:build:production"
           }
         },
         "lint": {

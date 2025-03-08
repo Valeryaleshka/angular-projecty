@@ -81,8 +81,6 @@ export class VideoChartComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   private setIframeHeight() {
-    console.log(this.iframe.nativeElement);
-    console.log('hello');
     const iframe = this.iframe.nativeElement;
     const iframeWidth = iframe.offsetWidth;
     const iframeHeight = (iframeWidth * 9) / 16;
