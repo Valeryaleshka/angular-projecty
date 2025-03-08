@@ -15,10 +15,7 @@
       "prefix": "app",
       "architect": {
         "deploy": {
-          "builder": "angular-cli-ghpages:deploy",
-          "options": {
-            "buildTarget": "angular-projecty:build:production"
-          }
+          "builder": "angular-cli-ghpages:deploy"
         },
         "lint": {
           "builder": "@angular-eslint/builder:lint",
@@ -35,7 +32,7 @@
             "customWebpackConfig": {
               "path": "./extra-webpack.config.js"
             },
-            "outputPath": "docs",
+            "outputPath": "dist/angular-projecty",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
