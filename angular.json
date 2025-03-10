@@ -14,9 +14,6 @@
       "sourceRoot": "src",
       "prefix": "app",
       "architect": {
-        "deploy": {
-          "builder": "angular-cli-ghpages:deploy"
-        },
         "lint": {
           "builder": "@angular-eslint/builder:lint",
           "options": {
@@ -27,8 +24,11 @@
           }
         },
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-builders/custom-webpack:browser",
           "options": {
+            "customWebpackConfig": {
+              "path": "./extra-webpack.config.js"
+            },
             "outputPath": "docs",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -38,6 +38,11 @@
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "less",
             "assets": [
+              {
+                "glob": "**/*",
+                "input": "public",
+                "output": "/public/"
+              },
               {
                 "glob": "**/*",
                 "input": "src/assets/",

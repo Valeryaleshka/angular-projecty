@@ -4,7 +4,6 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "deploy": "ng deploy --base-href=https://valeryaleshka.github.io/angular-projecty/",
     "build": "ng build --configuration development --delete-output-path",
     "build:prod": "ng build --configuration production --delete-output-path",
     "watch": "ng build --watch --configuration development",
