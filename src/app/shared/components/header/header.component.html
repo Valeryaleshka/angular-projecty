@@ -1,31 +1,24 @@
 <div class="header-container d-flx flx-column flx-center gap-l">
   <header class="header t-l-r">
-    <div class="title">
-      <ng-content select="[page-title]"></ng-content>
-    </div>
-    <div class="settings">
-      <p>
-        <mat-slide-toggle
-          [ngModel]="lightTheme$ | async"
-          (ngModelChange)="changeTheme()">
-        </mat-slide-toggle>
-      </p>
-      <!--      <nz-switch-->
-      <!--        [ngModel]="lightTheme$ | async"-->
-      <!--        (ngModelChange)="changeTheme()" />-->
-    </div>
-  </header>
-
-  @if (menu.length) {
-    <div class="d-flx gap-l">
-      @for (item of menu; track item) {
-        <a
-          class="menu-item"
-          [class.active]="isActive(item.url)"
-          [routerLink]="item.url"
-          >{{ item.title }}</a
-        >
+    <p>
+      <mat-slide-toggle
+        [ngModel]="lightTheme$ | async"
+        (ngModelChange)="changeTheme()">
+      </mat-slide-toggle>
+    </p>
+    <ng-content>
+      @if (menu.length) {
+        <mat-chip-set aria-label="Fish selection">
+          @for (item of menu; track item) {
+            <mat-chip
+              class="menu-item"
+              [class.active]="isActive(item.url)"
+              [routerLink]="item.url"
+              >{{ item.title }}</mat-chip
+            >
+          }
+        </mat-chip-set>
       }
-    </div>
-  }
+    </ng-content>
+  </header>
 </div>
