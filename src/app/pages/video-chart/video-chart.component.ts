@@ -14,24 +14,12 @@ import { ContentContainerComponent } from '../../shared/components/content-conta
 import { SafeXxsPipe } from '../../shared/common/pipes/save-xss.pipe';
 import { VideoItem } from './vide-chart.types';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { NzTableModule } from 'ng-zorro-antd/table';
-import { NzInputDirective } from 'ng-zorro-antd/input';
 import { FormsModule } from '@angular/forms';
-import { NzButtonComponent } from 'ng-zorro-antd/button';
 import { loadingStatus } from '../../shared/common/pipes/loading-status.pipe';
-import { NzAlertModule } from 'ng-zorro-antd/alert';
 
 @Component({
   selector: 'app-video-chart',
-  imports: [
-    ContentContainerComponent,
-    SafeXxsPipe,
-    NzTableModule,
-    NzInputDirective,
-    FormsModule,
-    NzAlertModule,
-    NzButtonComponent,
-  ],
+  imports: [ContentContainerComponent, SafeXxsPipe, FormsModule],
   providers: [VideoChartDataService],
   templateUrl: './video-chart.component.html',
   styleUrl: './video-chart.component.less',

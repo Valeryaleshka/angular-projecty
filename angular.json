@@ -27,11 +27,8 @@
           }
         },
         "build": {
-          "builder": "@angular-builders/custom-webpack:browser",
+          "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "customWebpackConfig": {
-              "path": "./extra-webpack.config.js"
-            },
             "outputPath": "docs",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -49,7 +46,6 @@
             ],
             "styles": [
               "src/styles.less",
-              "node_modules/ng-zorro-antd/ng-zorro-antd.less",
               "src/overrided.less"
             ],
             "stylePreprocessorOptions": {
