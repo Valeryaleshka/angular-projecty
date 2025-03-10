@@ -6,6 +6,8 @@
     "start": "ng serve",
     "build": "ng build --configuration development --delete-output-path",
     "build:prod": "ng build --configuration production --delete-output-path",
+    "github-build": "ng build --configuration development --base-href /angular-projecty/",
+    "github-deploy": "npx angular-cli-ghpages --dir=dist/angular-projecty --no-silent",
     "watch": "ng build --watch --configuration development",
     "test": "ng test --fix",
     "lint": "ng lint --fix"
