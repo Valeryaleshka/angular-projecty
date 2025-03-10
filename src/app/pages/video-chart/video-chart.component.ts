@@ -16,10 +16,16 @@ import { VideoItem } from './vide-chart.types';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormsModule } from '@angular/forms';
 import { loadingStatus } from '../../shared/common/pipes/loading-status.pipe';
+import { MatTableModule } from '@angular/material/table';
 
 @Component({
   selector: 'app-video-chart',
-  imports: [ContentContainerComponent, SafeXxsPipe, FormsModule],
+  imports: [
+    ContentContainerComponent,
+    SafeXxsPipe,
+    FormsModule,
+    MatTableModule,
+  ],
   providers: [VideoChartDataService],
   templateUrl: './video-chart.component.html',
   styleUrl: './video-chart.component.less',
@@ -36,6 +42,7 @@ export class VideoChartComponent implements OnInit, OnDestroy, AfterViewInit {
   protected videoList: VideoItem[] = [];
   loadingListStatus = false;
   selectedItem: VideoItem | null = null;
+  displayedColumns: string[] = ['preview', 'title'];
 
   ngOnInit() {
     this.getList();

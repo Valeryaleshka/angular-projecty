@@ -45,6 +45,7 @@
               }
             ],
             "styles": [
+              "@angular/material/prebuilt-themes/azure-blue.css",
               "src/styles.less",
               "src/overrided.less"
             ],
@@ -110,6 +111,7 @@
               }
             ],
             "styles": [
+              "@angular/material/prebuilt-themes/azure-blue.css",
               "src/styles.less"
             ],
             "scripts": []

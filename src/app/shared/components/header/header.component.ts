@@ -4,10 +4,12 @@ import { HeaderMenu } from '../../common/constants/header-menu';
 import { Router, RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { GlobalStateService } from '../../../store/global/global.service';
+import { MatSlideToggle } from '@angular/material/slide-toggle';
+import { AsyncPipe } from '@angular/common';
 
 @Component({
   selector: 'app-header',
-  imports: [RouterLink, FormsModule],
+  imports: [RouterLink, FormsModule, MatSlideToggle, AsyncPipe],
   templateUrl: './header.component.html',
   standalone: true,
   styleUrl: './header.component.less',

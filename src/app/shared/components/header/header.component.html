@@ -4,6 +4,12 @@
       <ng-content select="[page-title]"></ng-content>
     </div>
     <div class="settings">
+      <p>
+        <mat-slide-toggle
+          [ngModel]="lightTheme$ | async"
+          (ngModelChange)="changeTheme()">
+        </mat-slide-toggle>
+      </p>
       <!--      <nz-switch-->
       <!--        [ngModel]="lightTheme$ | async"-->
       <!--        (ngModelChange)="changeTheme()" />-->
