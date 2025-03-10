@@ -11,12 +11,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   AppNotFoundComponent: () => (/* binding */ AppNotFoundComponent)
 /* harmony export */ });
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ 5072);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ 7580);
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ 5072);
+
 
 
 let AppNotFoundComponent = /*#__PURE__*/(() => {
   class AppNotFoundComponent {
+    router = (0,_angular_core__WEBPACK_IMPORTED_MODULE_0__.inject)(_angular_router__WEBPACK_IMPORTED_MODULE_1__.Router);
+    ngOnInit() {
+      console.log(this.router.url);
+    }
     static ɵfac = function AppNotFoundComponent_Factory(__ngFactoryType__) {
       return new (__ngFactoryType__ || AppNotFoundComponent)();
     };
