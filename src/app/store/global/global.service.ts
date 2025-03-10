@@ -11,7 +11,8 @@ import { GlobalThemeType } from './global.state.models';
 export class GlobalStateService {
   store = inject(Store);
 
-  public lightTheme = this.store.select(GlobalState.lightTheme);
+  public isDarkTheme$ = this.store.select(GlobalState.lightTheme);
+  public currentTheme = this.store.select(GlobalState.getThemeItself);
 
   switchTheme() {
     this.store.dispatch(new GlobalSwitchTheme());

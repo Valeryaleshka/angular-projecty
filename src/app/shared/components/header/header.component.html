@@ -1,24 +1,47 @@
 <div class="header-container d-flx flx-column flx-center gap-l">
   <header class="header t-l-r">
-    <p>
-      <mat-slide-toggle
-        [ngModel]="lightTheme$ | async"
-        (ngModelChange)="changeTheme()">
-      </mat-slide-toggle>
-    </p>
+    <div></div>
     <ng-content>
-      @if (menu.length) {
-        <mat-chip-set aria-label="Fish selection">
-          @for (item of menu; track item) {
-            <mat-chip
-              class="menu-item"
-              [class.active]="isActive(item.url)"
-              [routerLink]="item.url"
-              >{{ item.title }}</mat-chip
-            >
+      <div class="d-flx gap-s">
+        @if (menu.length) {
+          @if (showMenu) {
+            @for (item of menu; track item) {
+              <a
+                class="menu-item"
+                [class.active]="isActive(item.url)"
+                mat-raised-button
+                [routerLink]="item.url"
+                >{{ item.title }}</a
+              >
+            }
+            <a mat-flat-button>Sign in</a>
+            <a mat-flat-button>Sign Up</a>
+          } @else {
+            <button
+              mat-icon-button
+              [matMenuTriggerFor]="menuNav"
+              aria-label="Example icon-button with a menu">
+              ///
+            </button>
+            <mat-menu #menuNav="matMenu" class="d-flx flx-column">
+              @for (item of menu; track item) {
+                <button
+                  mat-menu-item
+                  [class.active]="isActive(item.url)"
+                  (click)="navigate(item.url)">
+                  <span>{{ item.title }}</span>
+                </button>
+              }
+              <button mat-menu-item>
+                <span>Sign in</span>
+              </button>
+              <button mat-menu-item>
+                <span>Sign Up</span>
+              </button>
+            </mat-menu>
           }
-        </mat-chip-set>
-      }
+        }
+      </div>
     </ng-content>
   </header>
 </div>

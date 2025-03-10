@@ -40,6 +40,8 @@ export class VideoChartComponent implements OnInit, OnDestroy, AfterViewInit {
   protected searchValue = signal('');
 
   protected videoList: VideoItem[] = [];
+  protected isMobile = false;
+  private customBreakpoint = '(max-width: 1200px)';
   loadingListStatus = false;
   selectedItem: VideoItem | null = null;
   displayedColumns: string[] = ['preview', 'title'];

@@ -4,7 +4,7 @@ export interface HeaderMenuType {
 }
 
 export const HeaderTitles = {
-  home: 'Home',
+  home: 'Orders',
   about: 'About',
   video: 'Video Service',
 };
@@ -12,7 +12,7 @@ export const HeaderTitles = {
 export const HeaderMenu: HeaderMenuType[] = [
   {
     title: HeaderTitles.home,
-    url: '/home',
+    url: '/orders',
   },
   {
     title: HeaderTitles.about,

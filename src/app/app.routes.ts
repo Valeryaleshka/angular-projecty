@@ -7,9 +7,9 @@ export const routes: Routes = [
     path: '',
     component: RootComponent,
     children: [
-      { path: '', pathMatch: 'full', redirectTo: '/home' },
+      { path: '', pathMatch: 'full', redirectTo: '/orders' },
       {
-        path: 'home',
+        path: 'orders',
         loadComponent: () =>
           import('./pages/home/home.component').then(x => x.HomeComponent),
         data: { title: HeaderTitles.home },
