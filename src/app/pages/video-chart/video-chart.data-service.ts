@@ -27,7 +27,6 @@ export class VideoChartDataService {
 
     return of(videoResponse as never as YoutubeResponse).pipe(
       map((response: YoutubeResponse) => {
-        console.log(response);
         return shuffle(
           response.items.map((item: Item) => ({
             id: item.id.videoId,

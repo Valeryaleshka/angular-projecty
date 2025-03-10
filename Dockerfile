@@ -14,7 +14,7 @@ RUN yarn run build:prod
 
 FROM nginx:latest AS ngi
 
-COPY --from=build /app/dist/angular-projecty /usr/share/nginx/html
+COPY --from=build /app/docs /usr/share/nginx/html
 
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 

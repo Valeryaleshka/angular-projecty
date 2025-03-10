@@ -3,17 +3,23 @@ export interface HeaderMenuType {
   url: string;
 }
 
+export const HeaderTitles = {
+  home: 'Home',
+  about: 'About',
+  video: 'Video Service',
+};
+
 export const HeaderMenu: HeaderMenuType[] = [
   {
-    title: 'Home',
+    title: HeaderTitles.home,
     url: '/home',
   },
   {
-    title: 'About',
+    title: HeaderTitles.about,
     url: '/about',
   },
   {
-    title: 'Vide Service',
+    title: HeaderTitles.video,
     url: '/video',
   },
 ];
