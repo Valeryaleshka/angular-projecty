@@ -30,24 +30,6 @@ export const routes: Routes = [
       },
     ],
   },
-
-  // {
-  //   path: 'not-home',
-  //   providers: [NzModalService],
-  //   canDeactivate: [canDeactivateFunction],
-  //   loadComponent: () =>
-  //     import('./../components/home-sidebar/home-sidebar.component').then(
-  //       x => x.HomeSidebarComponent
-  //     ),
-  // },
-  // {
-  //   path: 'homeOne',
-  //   loadComponent: () =>
-  //     import('./../components/home-sidebar/home-sidebar.component').then(
-  //       x => x.HomeSidebarComponent
-  //     ),
-  //   outlet: 'sidebar',
-  // },
   {
     path: '404',
     loadComponent: () =>
