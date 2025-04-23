@@ -6,6 +6,8 @@
     "start": "ng serve",
     "build": "ng build --configuration development --delete-output-path",
     "build:prod": "ng build --configuration production --delete-output-path",
+    "github-build": "ng build --configuration development --base-href /angular-projecty/",
+    "github-deploy": "npx angular-cli-ghpages --dir=dist/angular-projecty --no-silent",
     "watch": "ng build --watch --configuration development",
     "test": "ng test --fix",
     "lint": "ng lint --fix"
@@ -14,6 +16,7 @@
   "dependencies": {
     "@angular-eslint/schematics": "^19.1.0",
     "@angular/animations": "^19.1.0",
+    "@angular/cdk": "^19.1.5",
     "@angular/common": "^19.1.0",
     "@angular/compiler": "^19.1.0",
     "@angular/core": "^19.1.0",
@@ -26,7 +29,6 @@
     "@ngxs/router-plugin": "^19.0.0",
     "@ngxs/store": "^19.0.0",
     "add": "^2.0.6",
-    "ng-zorro-antd": "^19.0.2",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.15.0"

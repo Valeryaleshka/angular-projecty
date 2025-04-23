@@ -1,23 +1,24 @@
 import { Routes } from '@angular/router';
 import { RootComponent } from './pages/root/root.component';
+import { HeaderTitles } from './shared/common/constants/header-menu';
 
 export const routes: Routes = [
   {
     path: '',
     component: RootComponent,
     children: [
-      { path: '', pathMatch: 'full', redirectTo: '/home' },
+      { path: '', pathMatch: 'full', redirectTo: '/orders' },
       {
-        path: 'home',
+        path: 'orders',
         loadComponent: () =>
           import('./pages/home/home.component').then(x => x.HomeComponent),
-        data: { title: 'Home' },
+        data: { title: HeaderTitles.home },
       },
       {
         path: 'about',
         loadComponent: () =>
           import('./pages/about/about.component').then(x => x.AboutComponent),
-        data: { title: 'About' },
+        data: { title: HeaderTitles.about },
       },
       {
         path: 'video',
@@ -25,28 +26,10 @@ export const routes: Routes = [
           import('./pages/video-chart/video-chart.component').then(
             x => x.VideoChartComponent
           ),
-        data: { title: 'Video Chart' },
+        data: { title: HeaderTitles.video },
       },
     ],
   },
-
-  // {
-  //   path: 'not-home',
-  //   providers: [NzModalService],
-  //   canDeactivate: [canDeactivateFunction],
-  //   loadComponent: () =>
-  //     import('./../components/home-sidebar/home-sidebar.component').then(
-  //       x => x.HomeSidebarComponent
-  //     ),
-  // },
-  // {
-  //   path: 'homeOne',
-  //   loadComponent: () =>
-  //     import('./../components/home-sidebar/home-sidebar.component').then(
-  //       x => x.HomeSidebarComponent
-  //     ),
-  //   outlet: 'sidebar',
-  // },
   {
     path: '404',
     loadComponent: () =>

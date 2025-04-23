@@ -1,6 +1,21 @@
-<div class="d-flx flx-center gap-l">
-  <div>Footer</div>
-  <div>Text</div>
-  <div>Another text</div>
-  <div>Still in progress</div>
+<div class="container d-flx flx-center gap-l">
+  <div>
+    <a href="https://facebook.com" target="_blank">
+      <mat-icon
+        aria-hidden="false"
+        aria-label="facebook"
+        fontIcon="facebook"></mat-icon>
+    </a>
+  </div>
+  <div></div>
+  <mat-form-field>
+    <mat-select
+      [ngModel]="currentTheme$ | async"
+      (ngModelChange)="changeTheme()">
+      @for (food of themes; track food) {
+        <mat-option [value]="food.value">{{ food.title }}</mat-option>
+      }
+    </mat-select>
+    <mat-hint>Current Theme</mat-hint>
+  </mat-form-field>
 </div>

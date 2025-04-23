@@ -2,21 +2,14 @@
   <div class="search-field d-flx gap-s m-b-l">
     <input
       (keydown.enter)="getList()"
-      nz-input
       placeholder="Search"
       [ngModel]="searchValue()"
       (ngModelChange)="searchValue.set($event)" />
-    <button
-      nz-button
-      (click)="getList()"
-      nzType="primary"
-      [nzLoading]="loadingListStatus">
-      Search
-    </button>
+    <button (click)="getList()">Search</button>
   </div>
   <div class="content-wrapper">
     <div class="video-wrapper">
-      <div class="t-s-r m-b-s">{{ selectedItem?.title }}</div>
+      <div class="t-l-r m-b-s">{{ selectedItem?.title }}</div>
       <div class="t-s-s m-b-s">{{ selectedItem?.description }}</div>
       <div #youtubeiframe class="iframe-wrapper">
         <iframe
@@ -30,32 +23,63 @@
     </div>
 
     <div class="table-wrapper">
-      <nz-table
-        #videoTable
-        [nzData]="videoList"
-        [nzLoading]="loadingListStatus"
-        [nzFrontPagination]="false">
-        <thead>
-          <tr>
-            <th>Preview</th>
-            <th>Title</th>
-          </tr>
-        </thead>
-        <tbody>
-          @for (data of videoTable.data; track data) {
-            <tr (click)="clickRow(data)" class="clickable">
-              <td>
-                <img
-                  src="{{ data.icon.url }}"
-                  alt=""
-                  width="100px"
-                  height="56px" />
-              </td>
-              <td>{{ data.title }}</td>
-            </tr>
-          }
-        </tbody>
-      </nz-table>
+      <table mat-table [dataSource]="videoList">
+        <ng-container matColumnDef="preview">
+          <th mat-header-cell *matHeaderCellDef>Preview</th>
+          <td mat-cell *matCellDef="let element">
+            <img
+              src="{{ element.icon.url }}"
+              alt=""
+              width="100px"
+              height="56px" />
+          </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="title">
+          <th mat-header-cell *matHeaderCellDef>Title</th>
+          <td mat-cell *matCellDef="let element">{{ element.title }}</td>
+        </ng-container>
+
+        <tr
+          mat-header-row
+          *matHeaderRowDef="displayedColumns"
+          class="table-header"></tr>
+        <tr
+          mat-row
+          *matRowDef="let row; columns: displayedColumns"
+          (click)="clickRow(row)"
+          class="clickable"></tr>
+      </table>
     </div>
+
+    <!--    <div class="table-wrapper">-->
+    <!--      <nz-table-->
+    <!--        #videoTable-->
+    <!--        [nzData]="videoList"-->
+    <!--        [nzLoading]="loadingListStatus"-->
+    <!--        [nzFrontPagination]="false">-->
+    <!--        <thead>-->
+    <!--          <tr>-->
+    <!--            <th>Preview</th>-->
+    <!--            <th>Title</th>-->
+    <!--          </tr>-->
+    <!--        </thead>-->
+    <!--        <tbody>-->
+    <!--          @for (data of videoTable.data; track data) {-->
+    <!--            <tr (click)="clickRow(data)" class="clickable">-->
+    <!--              <td>-->
+    <!--                <img-->
+    <!--                  src="{{ data.icon.url }}"-->
+    <!--                  alt=""-->
+    <!--                  width="100px"-->
+    <!--                  height="56px" />-->
+    <!--              </td>-->
+    <!--              <td>{{ data.title }}</td>-->
+    <!--            </tr>-->
+    <!--          }-->
+    <!--        </tbody>-->
+    <!--      </nz-table>-->
+    <!--    </div>-->
   </div>
 </app-content-container>

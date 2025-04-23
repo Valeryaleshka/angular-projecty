@@ -15,11 +15,11 @@ export class AppComponent implements OnInit {
   private store = inject(GlobalStateService);
 
   ngOnInit() {
-    const savedTheme = localStorage.getItem(localstorageThemeName);
+    const savedTheme = localStorage.getItem(localstorageThemeName) ?? 'light';
 
     this.store.setTheme(savedTheme as GlobalThemeType);
   }
 
-  protected isLightTheme$ = this.store.lightTheme;
+  protected isDarkTheme$ = this.store.isDarkTheme$;
   title = 'angular-projecty';
 }

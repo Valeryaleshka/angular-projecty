@@ -14,22 +14,17 @@ import { ContentContainerComponent } from '../../shared/components/content-conta
 import { SafeXxsPipe } from '../../shared/common/pipes/save-xss.pipe';
 import { VideoItem } from './vide-chart.types';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { NzTableModule } from 'ng-zorro-antd/table';
-import { NzInputDirective } from 'ng-zorro-antd/input';
 import { FormsModule } from '@angular/forms';
-import { NzButtonComponent } from 'ng-zorro-antd/button';
 import { loadingStatus } from '../../shared/common/pipes/loading-status.pipe';
+import { MatTableModule } from '@angular/material/table';
 
 @Component({
   selector: 'app-video-chart',
   imports: [
     ContentContainerComponent,
     SafeXxsPipe,
-
-    NzTableModule,
-    NzInputDirective,
     FormsModule,
-    NzButtonComponent,
+    MatTableModule,
   ],
   providers: [VideoChartDataService],
   templateUrl: './video-chart.component.html',
@@ -45,8 +40,11 @@ export class VideoChartComponent implements OnInit, OnDestroy, AfterViewInit {
   protected searchValue = signal('');
 
   protected videoList: VideoItem[] = [];
+  protected isMobile = false;
+  private customBreakpoint = '(max-width: 1200px)';
   loadingListStatus = false;
   selectedItem: VideoItem | null = null;
+  displayedColumns: string[] = ['preview', 'title'];
 
   ngOnInit() {
     this.getList();
@@ -80,8 +78,6 @@ export class VideoChartComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   private setIframeHeight() {
-    console.log(this.iframe.nativeElement);
-    console.log('hello');
     const iframe = this.iframe.nativeElement;
     const iframeWidth = iframe.offsetWidth;
     const iframeHeight = (iframeWidth * 9) / 16;

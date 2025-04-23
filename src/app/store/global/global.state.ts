@@ -14,7 +14,7 @@ import { localstorageThemeName } from '../../shared/common/constants/application
 export class GlobalState {
   @Selector()
   static lightTheme(state: GlobalStateModel) {
-    return state.theme === 'light';
+    return state.theme === 'dark';
   }
 
   @Selector()

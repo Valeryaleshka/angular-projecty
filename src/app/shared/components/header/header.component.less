@@ -3,15 +3,23 @@
   width: 100%;
   background-color: var(--main-color);
   min-height: 100px;
-  padding: 20px;
   position: sticky;
   top: 0;
   z-index: 999;
-  transition: background-color 0.5s;
+}
+
+.header-container {
+  padding: 20px;
+}
+
+.menu-item {
+  color: var(--text-color);
+  background-color: var(--background-color) !important;
 }
 
 .active {
-  border-bottom: 1px solid var(--text-color);
+  color: var(--text-color);
+  background-color: var(--background-active) !important;
 }
 
 .header {
@@ -28,8 +36,5 @@
   }
 }
 
-.menu-item {
-  color: var(--text-color);
-}
 
 
